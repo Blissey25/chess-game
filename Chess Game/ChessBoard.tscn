@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://img_531326.png" type="Texture" id=1]
+[ext_resource path="res://RowContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ColumnContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ChessBoard.cs" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -10,137 +13,14 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[node name="ChessBoard" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 
-[node name="RowContainer" type="VBoxContainer" parent="."]
-margin_left = -374.0
-margin_top = -374.0
-margin_right = 374.0
-margin_bottom = 374.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="RowContainer" parent="." instance=ExtResource( 2 )]
 
-[node name="Row1" type="Control" parent="RowContainer"]
-margin_right = 748.0
-margin_bottom = 90.0
-size_flags_vertical = 3
+[node name="ColumnContainer" parent="." instance=ExtResource( 3 )]
 
-[node name="Row2" type="Control" parent="RowContainer"]
-margin_top = 94.0
-margin_right = 748.0
-margin_bottom = 184.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row3" type="Control" parent="RowContainer"]
-margin_top = 188.0
-margin_right = 748.0
-margin_bottom = 278.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row4" type="Control" parent="RowContainer"]
-margin_top = 282.0
-margin_right = 748.0
-margin_bottom = 372.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row5" type="Control" parent="RowContainer"]
-margin_top = 376.0
-margin_right = 748.0
-margin_bottom = 466.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row6" type="Control" parent="RowContainer"]
-margin_top = 470.0
-margin_right = 748.0
-margin_bottom = 560.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row7" type="Control" parent="RowContainer"]
-margin_top = 564.0
-margin_right = 748.0
-margin_bottom = 654.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Row8" type="Control" parent="RowContainer"]
-margin_top = 658.0
-margin_right = 748.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ColumnContainer" type="HBoxContainer" parent="."]
-margin_left = -374.0
-margin_top = -374.0
-margin_right = 374.0
-margin_bottom = 374.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Column1" type="Control" parent="ColumnContainer"]
-margin_right = 90.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column2" type="Control" parent="ColumnContainer"]
-margin_left = 94.0
-margin_right = 184.0
-margin_bottom = 748.0
-rect_pivot_offset = Vector2( -1298, 282 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column3" type="Control" parent="ColumnContainer"]
-margin_left = 188.0
-margin_right = 278.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column4" type="Control" parent="ColumnContainer"]
-margin_left = 282.0
-margin_right = 372.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column5" type="Control" parent="ColumnContainer"]
-margin_left = 376.0
-margin_right = 466.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column6" type="Control" parent="ColumnContainer"]
-margin_left = 470.0
-margin_right = 560.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column7" type="Control" parent="ColumnContainer"]
-margin_left = 564.0
-margin_right = 654.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Column8" type="Control" parent="ColumnContainer"]
-margin_left = 658.0
-margin_right = 748.0
-margin_bottom = 748.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[connection signal="mouse_exited" from="RowContainer" to="." method="_on_RowContainer_mouse_exited"]
