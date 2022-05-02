@@ -3,6 +3,22 @@ using System;
 
 public class Pieces : Node2D
 {
+    enum Piece
+    {
+        whitePawn,
+        whiteRook,
+        whiteBish,
+        whiteKnight,
+        whiteQueen,
+        whiteKing,
+        blackPawn,
+        blackRook,
+        blackBish,
+        blackKnight,
+        blackQueen,
+        blackKing,
+
+    }
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
