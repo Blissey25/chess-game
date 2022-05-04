@@ -5,6 +5,7 @@
 [node name="Lane" type="Control"]
 margin_right = 90.0
 margin_bottom = 748.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )

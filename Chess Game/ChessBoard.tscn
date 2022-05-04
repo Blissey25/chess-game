@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://img_531326.png" type="Texture" id=1]
-[ext_resource path="res://RowContainer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ColumnContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GridContainer.cs" type="Script" id=2]
 [ext_resource path="res://ChessBoard.cs" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -19,8 +18,15 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 
-[node name="RowContainer" parent="." instance=ExtResource( 2 )]
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = -373.0
+margin_top = -373.0
+margin_right = 375.0
+margin_bottom = 374.0
+columns = 8
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ColumnContainer" parent="." instance=ExtResource( 3 )]
-
-[connection signal="mouse_exited" from="RowContainer" to="." method="_on_RowContainer_mouse_exited"]
+[connection signal="mouse_exited" from="GridContainer" to="GridContainer" method="_on_GridContainer_mouse_exited"]
